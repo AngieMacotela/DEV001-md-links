@@ -8,7 +8,7 @@ const fileMd = (pathRuta) => {
     return fileMd === ".md";
 };
 
-//Creamos una función la cual permite devolver rutas absolutas mediante el método path.isAbsolute que 
+/*//Creamos una función la cual permite devolver rutas absolutas mediante el método path.isAbsolute que 
 //devuelve true si la ruta es una ruta absoluta y false si es una ruta relativa.
 const pathRelative = (pathRuta) => {
     //Devolvemos el resultado de path.isAbsolute(pathRuta), indicando si la ruta es absoluta o relativa.
@@ -18,7 +18,19 @@ const pathRelative = (pathRuta) => {
 //Convertirmos rutas relativas en absolutas usando la función path.resolve de la librería path de Node.js para devolver una ruta absoluta.
 const pathAbsolute = (pathRuta) => {
     return path.resolve(pathRuta);
-};
+};*/
+
+const toAbsolute = (pathRuta) => {
+    //devolver rutas absolutas mediante el método path.isAbsolute que 
+    //devuelve true si la ruta es una ruta absoluta y false si es una ruta relativa.
+    //Devolvemos el resultado de path.isAbsolute(pathRuta), indicando si la ruta es absoluta o relativa.
+    if (!path.isAbsolute(pathRuta)) {
+        //Convertirmos rutas relativas en absolutas usando la función path.resolve de la librería path de Node.js para devolver una ruta absoluta.
+        return path.resolve(pathRuta)
+    } else {
+        return pathRuta
+    }
+}
 
 //Extraer los enlaces
 const readFile = (pathRuta) => {
@@ -92,15 +104,15 @@ const validateLinks = async (pathRuta) => {
     return await Promise.all(promiseFetch);
 }
 
-readFile('C:\\DEV001-md-links\\prueba\\Saga Harry Potter.md').then((links) => {
+/*readFile('C:\\DEV001-md-links\\prueba\\Saga Harry Potter.md').then((links) => {
     console.log(links)
-}).catch(() => {})
+}).catch(() => { })
 
-validateLinks('C:\\DEV001-md-links\\prueba\\Saga Harry Potter.md').then(res=>console.log('promesa',res));
+validateLinks('C:\\DEV001-md-links\\prueba\\Saga Harry Potter.md').then(res => console.log('promesa', res));*/
 
 module.exports = {
     fileMd,
-    pathRelative,
-    pathAbsolute,
+    toAbsolute,
+    readFile,
     validateLinks
 };
