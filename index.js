@@ -1,5 +1,4 @@
 const { fileMd, toAbsolute, readFile, validateLinks } = require('./api.js')
-const pathRuta =  'C:\\DEV001-md-links\\prueba\\Saga Harry Potter.md'
 
 const mdLinks = (pathRuta, options) => {
   return new Promise((resolve, reject) => {

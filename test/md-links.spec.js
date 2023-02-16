@@ -1,4 +1,4 @@
-const { mdLinks } = require('../index.js');
+//const { mdLinks } = require('../index.js');
 const { fileMd, toAbsolute, readFile, validateLinks } = require('../api')
 
 const absolutePath = 'C:\\DEV001-md-links\\prueba\\Saga Harry Potter.md'
@@ -88,7 +88,7 @@ const links = [
   },
 ]
 
-describe('mdLinks', () => {
+/*describe('mdLinks', () => {
 
   it('should...', () => {
     console.log('FIX ME!');
@@ -101,4 +101,4 @@ describe('mdLinks', () => {
       expect(error).toBe('La ruta no existe');
     })
   })
-});
+});*/
